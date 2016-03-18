@@ -5,8 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
 import se.uu.ucr.livingdoc.annotationhelp.ClassFinder;
-import se.uu.ucr.livingdoc.annotations.Documentation;
-import se.uu.ucr.livingdoc.annotations.EffectivelyImmutable;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,26 +21,6 @@ public class LivingDocTest {
         clazzes = ClassFinder.getClasses("se.uu.ucr.livingdoc");
     }
 
-    @Test
-    public void createUrlForEffectivelyImmutableImage() throws IOException, ClassNotFoundException {
-        Class effectivelyImmutableClass = EffectivelyImmutable.class;
-        String documentationText = ((Documentation)effectivelyImmutableClass.getAnnotation(Documentation.class)).value();
-
-
-        List<String> classNames = clazzes.stream()
-                .filter(c -> c.isAnnotationPresent(effectivelyImmutableClass))
-                .map(c -> c.getSimpleName())
-                .collect(Collectors.toList());
-
-
-        String notePart = "[EffectivelyImmutable]-[note:"+ documentationText +"]";
-        String classes = classNames.stream().map(cn -> ",[EffectivelyImmutable]-[" + cn +"]").collect(Collectors.joining());
-
-        System.out.println();
-        System.out.println("------  Annoteringar -> bild' ------");
-        System.out.println("Det här anropet kommer att producera en bild som visar alla våra immutable-klasser:");
-        System.out.println("http://yuml.me/diagram/plain;dir:LR/class/" + notePart + classes);
-    }
 
     @Test
     public void createSpecificationFile() throws JsonProcessingException {
