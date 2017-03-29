@@ -9,7 +9,7 @@ The default behaviour is to log the texts with Log4j, but you can of course do w
 Only three classes, so feel free to copy and change them at your heart's will!<br><br>
 
 Run the included test class for an example.
-The log will print to the console and specification.log
+The logger will print to the console and specification.log
 
 ## Basic Usage
 * Annotate your Junit test class and provide a name and description of the tests/examples in the class.

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
-import se.uu.ucr.livingdoc.annotationhelp.ClassFinder;
+import net.scatteredbits.annotationhelper.ClassFinder;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class LivingDocTest {
 
     @Before
     public void setup() throws IOException, ClassNotFoundException {
-        clazzes = ClassFinder.getClasses("se.uu.ucr.livingdoc");
+        clazzes = ClassFinder.getClasses("net.scatteredbits");
     }
 
 
@@ -40,7 +40,7 @@ public class LivingDocTest {
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(specs);
         System.out.println();
-        System.out.println("------  Documentation från tester -> json -> 'rapport' _-----");
+        System.out.println("------  Documentation från tester -> json -> 'rapport' -----");
         System.out.println("Klipp in följande json i textarean på http://json.bloople.net för att få en gräsligt ful html-rapport:");
         System.out.println(json);
 
